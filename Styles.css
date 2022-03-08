@@ -1,0 +1,57 @@
+:root {
+  --primary-font: "Kalam", cursive;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: var(--primary-font);
+}
+.header {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: #fde047;
+}
+.header .main-header {
+  text-align: center;
+  font-size: 2rem;
+}
+.section {
+  margin: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section .section-inputbox {
+  min-height: 10rem;
+  min-width: 50vw;
+  font-family: var(--primary-font);
+  padding: 0.5rem;
+}
+
+.div-button {
+  margin: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.translate-button {
+  background-color: #fde047;
+  font-family: var(--primary-font);
+  margin: 2rem 5rem;
+  min-height: 3rem;
+  min-width: 6rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+textarea {
+  border-radius: 1rem 0rem;
+  font-size: 1rem;
+}
+.footer {
+  margin: auto;
+  padding: 0.2rem;
+  text-align: center;
+  background-color: #fde047;
+}
