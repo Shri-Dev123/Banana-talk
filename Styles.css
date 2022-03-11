@@ -5,6 +5,7 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: var(--primary-font);
+  max-height: 100vh;
 }
 .header {
   display: flex;
@@ -28,6 +29,7 @@ body {
   min-width: 50vw;
   font-family: var(--primary-font);
   padding: 0.5rem;
+  border: 1px solid black;
 }
 
 .div-button {
@@ -44,11 +46,17 @@ body {
   min-width: 6rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
+  transition: border-radius 1s ease-in-out 100ms;
+  transition: background-color 1s ease-in 100ms;
 }
-textarea {
-  border-radius: 1rem 0rem;
-  font-size: 1rem;
+
+.translate-button:hover {
+  background-color: #f59e0b;
+  color: aliceblue;
+  border-radius: 0rem 1rem;
+  cursor: pointer;
 }
+
 .footer {
   margin: auto;
   padding: 0.2rem;
