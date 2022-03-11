@@ -2,25 +2,36 @@ const bananaInput = document.querySelector(".section-inputbox");
 const translateButton = document.querySelector(".translate-button");
 let tranlatedTextArea = document.querySelector(".translated-textarea");
 
-var serverUrl = "https://api.funtranslations.com/translate/minion.json";
+const serverUrl = "https://api.funtranslations.com/translate/minion.json";
 
-var urlEdit = (text) => {
+var urlEdit = function (serverUrl, text) {
   return `${serverUrl}?text=${text}`;
 };
 
-var errorHandler = (error) => {
-  console.log(`${error}, something went wrong...! please try again later`);
-};
-
-var getFetchedData = () => {
+var getFetchedData = function () {
   var inputText = bananaInput.value;
   if (inputText === "") {
-    tranlatedTextArea.value = "Please type something..! to Translate";
-  } else if (inputText !== "") {
-    return fetch(urlEdit(inputText))
-      .then((response) => response.json())
-      .then((json) => (tranlatedTextArea.value = json.contents.translated))
-      .catch((error) => alert(errorHandler()));
+    tranlatedTextArea.value =
+      "Please type something in the above input box, To translate";
+  } else {
+    fetch(urlEdit(serverUrl, inputText))
+      .then(function (response) {
+        response
+          .json()
+          .then(function (json) {
+            if (json?.contents?.translated) {
+              tranlatedTextArea.value = json.contents.translated;
+            } else {
+              alert(json.error.message);
+            }
+          })
+          .catch(function (error) {
+            alert(error.message);
+          });
+      })
+      .catch(function (error) {
+        alert("something went wrong, please try later");
+      });
   }
 };
 
